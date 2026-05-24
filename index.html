@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Solicitud de Ayuda</title>
+</head>
+<body>
+    <h1>Solicitud de Ayuda - Fundación</h1>
+    <form id="formularioSolicitud">
+        <label>Nombre completo:</label><br>
+        <input type="text" name="nombre" required><br><br>
+
+        <label>Correo electrónico:</label><br>
+        <input type="email" name="correo" required><br><br>
+
+        <label>Motivo de la ayuda:</label><br>
+        <textarea name="motivo" rows="4" cols="30" required></textarea><br><br>
+
+        <button type="submit">Enviar Solicitud</button>
+    </form>
+
+    <p id="mensaje"></p>
+
+    <script>
+        document.getElementById('formularioSolicitud').addEventListener('submit', function(event){
+            event.preventDefault();
+            let nombre = this.nombre.value;
+            let correo = this.correo.value;
+            let motivo = this.motivo.value;
+            document.getElementById('mensaje').textContent = "Gracias " + nombre + ", tu solicitud ha sido enviada.";
+            this.reset();
+        });
+    </script>
+</body>
+</html>
